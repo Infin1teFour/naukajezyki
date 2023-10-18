@@ -7,8 +7,8 @@ root.geometry("600x200")
 root.resizable(0, 0)
 
 def level(level):
-    os.system("python3 " + level + ".py")
     root.destroy()
+    os.system("python3 " + level + ".py")
 
 info = tk.Label(root, text="Witaj! Wybierz poziom trudności:", font=("Arial", 20), width=25, height=2)
 info.grid(row=0, column=0, columnspan=3)
