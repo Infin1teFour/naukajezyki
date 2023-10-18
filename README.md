@@ -1,2 +1,2 @@
 # naukajezyki
-Progam do nauki różnych języków
+Progam do nauki języka Finskiego.
