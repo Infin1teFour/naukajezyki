@@ -5,6 +5,8 @@ import mysql.connector  # łącznik mysql
 import random as r  # biblioteka random jako r
 import matplotlib.pyplot as plt  # biblioteka matplotlib jako plt
 
+
+#połączenie z bazą
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
