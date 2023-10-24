@@ -5,6 +5,8 @@ import mysql.connector  # łącznik mysql
 import random as r  # biblioteka random jako r
 import matplotlib.pyplot as plt  # biblioteka matplotlib jako plt
 
+
+#połączenie z bazą
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -22,10 +24,9 @@ root.resizable("false", "false")
 root.configure(bg="lightgrey")
 
 
+
 def test():
     print('test')
-
-
 
 
 #zmienne
@@ -35,9 +36,6 @@ c = 0
 d = 0
 e = 0
 f = 0
-
-
-
 
 
 
