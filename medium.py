@@ -2,7 +2,7 @@
 import tkinter as tk
 
 root = tk.Tk()
-root.title("nauka - poziom łatwy")
+root.title("nauka - poziom Średni")
 root.geometry("1200x800")
 root.resizable("false", "false")
 
