@@ -53,26 +53,12 @@ INSERT INTO `poziom1` (`id`, `obrazek`, `odpowiedz`, `napis`) VALUES
 (12, 'Por.png', 'purjo', 'por'),
 (13, 'Kukurydza.png', 'maissi', 'kukurydza'),
 (14, 'Burak.png', 'puna-juuri', 'burak'),
-(15, 'jabłko.png', 'omena', 'jabłko'),
-(16, 'pomarancza.png', 'appelsiini', 'pomarańcza'),
-(17, 'gruszka.png', 'päärynä', 'gruszka'),
-(18, 'Banan.png', 'banaani', 'banan'),
-(19, 'truskawka.png', 'mansikka', 'truskawka'),
-(20, 'Cytryna.png', 'sitruuna', 'cytryna'),
-(21, 'ziemniak.png', 'peruna', 'ziemniak'),
-(22, 'Arbuz.png', 'vesi-melooni', 'arbuz'),
-(23, 'marchewka.png', 'porkkana', 'marchewka'),
-(24, 'rzodkiewka.png', 'retiisi', 'rzodkiewka'),
-(25, 'kalarepa.png', 'kyssäkaali', 'kalarepa'),
-(26, 'Por.png', 'purjo', 'por'),
-(27, 'Kukurydza.png', 'maissi', 'kukurydza'),
-(28, 'Burak.png', 'puna-juuri', 'burak'),
-(29, 'Pomidor.png', 'tomaati', 'pomidor'),
-(30, 'Groszek.png', 'herne', 'groszek'),
-(31, 'ogórek.png', 'kurkku', 'ogórek'),
-(32, 'pieczarki.png', 'herkku-sieeni', 'pieczarki'),
-(33, 'Malina.png', 'vadelma', 'malina'),
-(34, 'Pietruszka.png', 'persilja', 'pietruszka');
+(15, 'Pomidor.png', 'tomaati', 'pomidor'),
+(16, 'Groszek.png', 'herne', 'groszek'),
+(17, 'ogórek.png', 'kurkku', 'ogórek'),
+(18, 'pieczarki.png', 'herkku-sieeni', 'pieczarki'),
+(19, 'Malina.png', 'vadelma', 'malina'),
+(20, 'Pietruszka.png', 'persilja', 'pietruszka');
 
 -- --------------------------------------------------------
 
