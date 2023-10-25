@@ -23,13 +23,16 @@ root.geometry("1200x800")
 root.resizable("false", "false")
 root.configure(bg="lightgrey")
 
-
+test0= r.randint(1, 100)
 test1 = 0
 def test():
-    global test1
+    global test1, test0
     print('test')
-    test1 = test1 +1
-    print(test1)
+    while test1 < test0:
+        test1 = test1 +0.0001
+        print(test1)
+    test1 = 0
+    test0= r.randint(1, 100)
 
 #zmienne
 a = 0
