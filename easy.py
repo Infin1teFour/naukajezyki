@@ -24,10 +24,12 @@ root.resizable("false", "false")
 root.configure(bg="lightgrey")
 
 
-
+test1 = 0
 def test():
+    global test1
     print('test')
-
+    test1 = test1 +1
+    print(test1)
 
 #zmienne
 a = 0
