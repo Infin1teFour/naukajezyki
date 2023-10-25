@@ -1,22 +1,41 @@
-#Zaimportowanie bibliotek
 import tkinter as tk
+import mysql.connector
 import random
+
+# Połączenie z bazą danych MySQL
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="trudnosci"
+)
 
 # Inicjalizacja głównego okna Tkinter
 root = tk.Tk()
 root.title("Nauka - Trudne")
 root.resizable(0, 0)
 
-# Przygotowanie listy słówek i jej przetasowanie
-wordlist = [("jabłko", "apple"), ("banan", "banana"), ("ogórek", "pickle")]
-random.shuffle(wordlist)
-
 # Inicjalizacja zmiennych
 score = 0
-current_polish, current_english = wordlist[score]
+current_polish, current_finish = "", ""
 
 # Inicjalizacja zmiennej do śledzenia liczby błędnych odpowiedzi
 loser = 0
+
+# Funkcja do pobierania słówek z bazy danych
+def get_wordlist_from_database():
+    cursor = db.cursor()
+    cursor.execute("SELECT napis_polski, fin_slowo FROM poziom3")
+    return cursor.fetchall()
+
+# Funkcja do losowania nowego słówka
+def choose_random_word():
+    global current_polish, current_finish
+    current_polish, current_finish = random.choice(wordlist)
+
+# Przygotowanie listy słówek
+wordlist = get_wordlist_from_database()
+choose_random_word()
 
 # Funkcja zwracająca aktualne pytanie
 def pytanie():
@@ -39,21 +58,22 @@ guess_entry.grid(row=2, column=0)
 
 # Funkcja do sprawdzania odpowiedzi użytkownika
 def check():
-    global score, current_polish, current_english, wordlist, loser
+    global score, current_polish, current_finish, wordlist, loser
 
     if score < len(wordlist):
         user_guess = guess.get()
         if user_guess:
-            if user_guess == current_english:
+            if user_guess == current_finish:
                 score += 1
                 scoredis.config(text="Punkty: " + str(score))
-                if score < len(wordlist):
-                    current_polish, current_english = wordlist[score]
+                if score <= 20:
+                    choose_random_word()
                     currentword.config(text=current_polish)
                     pytanie_L.config(text="")
                     guess.set("")
                 else:
-                    currentword.config(text="Gra zakończona")
+                    currentword.config(text="Gra wygrałeś")
+                    button.config(state="disabled")
             else:
                 if loser == 3:
                     pytanie_L.config(text="Zła odpowiedź przegrałeś")
@@ -69,3 +89,6 @@ button.grid(row=2, column=1)
 # Uruchomienie głównej pętli Tkinter
 check()
 tk.mainloop()
+
+# Zakończenie połączenia z bazą danych
+db.close()
