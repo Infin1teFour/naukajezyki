@@ -21,14 +21,12 @@ SET time_zone = "+00:00";
 -- Baza danych: `trudnosci`
 --
 
--- ---------------------
+CREATE DATABASE `trudnosci`;
+USE trudnosci;
 
 --
 -- Struktura tabeli dla tabeli `poziom1`
 --
-
-CREATE DATABASE `trudnosci`;
-USE trudnosci;
 
 CREATE TABLE `poziom1` (
   `id` int(11) NOT NULL,
