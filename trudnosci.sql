@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 24 Paź 2023, 09:02
+-- Czas generowania: 25 Paź 2023, 11:54
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 7.4.30
 
@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Struktura tabeli dla tabeli `poziom1`
 --
+
+CREATE DATABASE 'trudnosci';
+USE trudnosci;
 
 CREATE TABLE `poziom1` (
   `id` int(11) NOT NULL,
@@ -98,6 +101,44 @@ INSERT INTO `poziom2` (`id`, `napis`, `odpowiedz`) VALUES
 (19, 'malina', 'vadelma'),
 (20, 'pietruszka', 'persilja');
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `poziom3`
+--
+
+CREATE TABLE `poziom3` (
+  `id` int(11) NOT NULL,
+  `napis_polski` text COLLATE utf8mb4_polish_ci NOT NULL,
+  `fin_slowo` text COLLATE utf8mb4_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `poziom3`
+--
+
+INSERT INTO `poziom3` (`id`, `napis_polski`, `fin_slowo`) VALUES
+(1, 'jabłko', 'omena'),
+(2, 'pomarańcza', 'appelsiini'),
+(3, 'gruszka', 'päärynä'),
+(4, 'banan', 'banaani'),
+(5, 'truskawka', 'mansikka'),
+(6, 'cytryna', 'sitruuna'),
+(7, 'ziemniak', 'peruna'),
+(8, 'arbuz', 'vesi-melooni'),
+(9, 'marchewka', 'porkkana'),
+(10, 'rzodkiewka', 'retiisi'),
+(11, 'kalarepa', 'kyssäkaali'),
+(12, 'por', 'purjo'),
+(13, 'kukurydza', 'maissi'),
+(14, 'burak', 'puna-juuri'),
+(15, 'pomidor', 'tomaati'),
+(16, 'groszek', 'herne'),
+(17, 'ogórek', 'kurkku'),
+(18, 'pieczarki', 'herkku-sieeni'),
+(19, 'malina', 'vadelma'),
+(20, 'pietruszka', 'persilja');
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -115,6 +156,12 @@ ALTER TABLE `poziom2`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `poziom3`
+--
+ALTER TABLE `poziom3`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
 
@@ -128,6 +175,12 @@ ALTER TABLE `poziom1`
 -- AUTO_INCREMENT dla tabeli `poziom2`
 --
 ALTER TABLE `poziom2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT dla tabeli `poziom3`
+--
+ALTER TABLE `poziom3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
