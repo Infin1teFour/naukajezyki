@@ -34,6 +34,7 @@ def get_wordlist_from_database():
 def choose_random_word():
     global current_finnish
     current_finnish = random.choice(wordlist)
+    current_finnish = str(current_finnish)
 
 # Przygotowanie listy słówek
 wordlist = get_wordlist_from_database()
@@ -47,7 +48,9 @@ def pytanie():
 pytanie_L = tk.Label(root, text="", font=("Arial", 20), width=25, height=2)
 pytanie_L.grid(row=0, column=0)
 
-currentword = tk.Label(root, text=current_finnish, font=("Arial", 20), width=25, height=2)
+splited = current_finnish.split()
+
+currentword = tk.Label(root, text=splited, font=("Arial", 20), width=25, height=2)
 currentword.grid(row=1, column=0, columnspan=3)
 
 scoredis = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), width=25, height=2)
