@@ -12,10 +12,10 @@ db = mysql.connector.connect(
 
 # Inicjalizacja głównego okna Tkinter
 root = tk.Tk()
-root.title("Nauka - Średnio /Trudne")
+root.title("Nauka - Średnio / Trudne")
 root.resizable(0, 0)
 
-vowels = {"a", "e", "i", "o", "u", "y"}
+vowels = {"a", "e", "i", "o", "u", "y", "-"}
 
 # Inicjalizacja zmiennych
 score = 0
@@ -34,24 +34,21 @@ def get_wordlist_from_database():
 def choose_random_word():
     global current_finnish
     current_finnish = random.choice(wordlist)
-    current_finnish = str(current_finnish)
+    current_finnish = str(current_finnish[0])  # Pobieramy pierwszy element z krotki
 
 # Przygotowanie listy słówek
 wordlist = get_wordlist_from_database()
 choose_random_word()
 
-# Funkcja zwracająca aktualne pytanie
-def pytanie():
-    return current_finnish
+# Funkcja zwracająca samogłoski z aktualnego pytania
+def samogloski():
+    return '_'.join([litera for litera in current_finnish if litera.lower() in vowels])
 
-# Inicjalizacja etykiet w głównym oknie
-pytanie_L = tk.Label(root, text="", font=("Arial", 20), width=25, height=2)
-pytanie_L.grid(row=0, column=0)
+# Inicjalizacja etykiety wyświetlającej samogłoski
+samogloski_L = tk.Label(root, text=samogloski(), font=("Arial", 20), width=25, height=2)
+samogloski_L.grid(row=0, column=0)
 
-splited = current_finnish.split()
-
-currentword = tk.Label(root, text=splited, font=("Arial", 20), width=25, height=2)
-currentword.grid(row=1, column=0, columnspan=3)
+currentword = current_finnish
 
 scoredis = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), width=25, height=2)
 scoredis.grid(row=0, column=3)
@@ -68,24 +65,24 @@ def check():
     if score < len(wordlist):
         user_guess = guess.get()
         if user_guess:
-            if user_guess == current_finish:
+            if user_guess == current_finnish:
                 score += 1
                 scoredis.config(text="Punkty: " + str(score))
                 if score <= 20:
                     choose_random_word()
-                    currentword.config(text=current_finnish)
-                    pytanie_L.config(text="")
+                    currentword = current_finnish
+                    samogloski_L.config(text=samogloski())
                     guess.set("")
                 else:
-                    currentword.config(text="Gra wygrałeś")
+                    currentword = "Gra wygrałeś"
                     button.config(state="disabled")
             else:
                 if loser == 3:
-                    pytanie_L.config(text="Zła odpowiedź przegrałeś")
+                    samogloski_L.config(text="Zła odpowiedź przegrałeś")
                     button.config(state="disabled")  # Wyłącz przycisk po przegranej
                 else:
                     loser += 1
-                    pytanie_L.config(text="Zła odpowiedź popełniłeś " + str(loser) + " błędy")
+                    samogloski_L.config(text="Zła odpowiedź popełniłeś " + str(loser) + " błędy")
 
 # Przycisk do sprawdzania odpowiedzi
 button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check)
