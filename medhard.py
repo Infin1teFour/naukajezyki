@@ -42,7 +42,7 @@ choose_random_word()
 
 # Funkcja zwracająca samogłoski z aktualnego pytania
 def samogloski():
-    return '_'.join([litera for litera in current_finnish if litera.lower() in vowels])
+    return ' '.join([litera for litera in current_finnish if litera.lower() in vowels])
 
 # Inicjalizacja etykiety wyświetlającej samogłoski
 samogloski_L = tk.Label(root, text=samogloski(), font=("Arial", 20), width=25, height=2)
