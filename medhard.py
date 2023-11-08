@@ -85,12 +85,19 @@ def check():
                     currentword = "Gra wygrałeś"
                     button.config(state="disabled")
             else:
-                if loser == 3:
+                if loser > 2 :
                     samogloski_L.config(text="Zła odpowiedź przegrałeś")
+                    guess_entry.config(state="disabled")
                     button.config(state="disabled")  # Wyłącz przycisk po przegranej
                 else:
-                    loser += 1
-                    
+                    loser =loser + 1
+                    loserdis.config( text = "Błędy: "+ str(loser)  )
+                    choose_random_word()
+                    currentword = current_finnish
+                    samogloski_L.config(text=display_word(current_finnish))
+                    guess.set("")
+
+
 
 # Przycisk do sprawdzania odpowiedzi
 button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check)
