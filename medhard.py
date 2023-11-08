@@ -40,18 +40,26 @@ def choose_random_word():
 wordlist = get_wordlist_from_database()
 choose_random_word()
 
-# Funkcja zwracająca samogłoski z aktualnego pytania
-def samogloski():
-    return ' '.join([litera for litera in current_finnish if litera.lower() in vowels])
+# Funkcja do przekształcania słowa na formę do wyświetlenia
+def display_word(word):
+    displayed_word = ""
+    for letter in word:
+        if letter.lower() in vowels:
+            displayed_word += letter
+        else:
+            displayed_word += " _ "
+    return displayed_word
 
-# Inicjalizacja etykiety wyświetlającej samogłoski
-samogloski_L = tk.Label(root, text=samogloski(), font=("Arial", 20), width=25, height=2)
+# Inicjalizacja etykiety wyświetlającej samogłoski jako litery, a współgłoski jako "_"
+samogloski_L = tk.Label(root, text=display_word(current_finnish), font=("Arial", 20), width=25, height=2)
 samogloski_L.grid(row=0, column=0)
 
 currentword = current_finnish
 
 scoredis = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), width=25, height=2)
 scoredis.grid(row=0, column=3)
+loserdis = tk.Label(root, text="Błędy: " + str(loser), font=("Arial", 20), width=25, height=2)
+loserdis.grid(row=1, column=3)
 
 # Pole do wprowadzania odpowiedzi
 guess = tk.StringVar()
@@ -60,7 +68,7 @@ guess_entry.grid(row=2, column=0)
 
 # Funkcja do sprawdzania odpowiedzi użytkownika
 def check():
-    global score, current_finnish, current_finish, wordlist, loser
+    global currentword, score, current_finnish, current_finish, wordlist, loser
 
     if score < len(wordlist):
         user_guess = guess.get()
@@ -71,7 +79,7 @@ def check():
                 if score <= 20:
                     choose_random_word()
                     currentword = current_finnish
-                    samogloski_L.config(text=samogloski())
+                    samogloski_L.config(text=display_word(current_finnish))
                     guess.set("")
                 else:
                     currentword = "Gra wygrałeś"
@@ -82,15 +90,14 @@ def check():
                     button.config(state="disabled")  # Wyłącz przycisk po przegranej
                 else:
                     loser += 1
-                    samogloski_L.config(text="Zła odpowiedź popełniłeś " + str(loser) + " błędy")
+                    
 
 # Przycisk do sprawdzania odpowiedzi
 button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check)
 button.grid(row=2, column=1)
 
 # Uruchomienie głównej pętli Tkinter
-check()
-tk.mainloop()
+root.mainloop()
 
 # Zakończenie połączenia z bazą danych
 db.close()
