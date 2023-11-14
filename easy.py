@@ -19,7 +19,6 @@ cursor.execute("SELECT napis, odpowiedz FROM poziom1")
 result = cursor.fetchall()
 r.shuffle(result)
 
-print(result)
 #okno 
 root = tk.Tk()
 root.title("nauka - poziom łatwy")
