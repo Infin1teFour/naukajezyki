@@ -13,6 +13,8 @@ conn = mysql.connector.connect(
     database="trudnosci"
 )
 
+loser = 0
+
 cursor = conn.cursor()
 cursor.execute("SELECT napis, odpowiedz FROM poziom2")
 result = cursor.fetchall()
@@ -83,13 +85,17 @@ scoreLabel = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), bg
 scoreLabel.grid(row=3, column=0, columnspan=4)
 
 def check(odpowiedz):
-    global poprawne, score
+    global poprawne, score, loser
     if odpowiedz == poprawne:
         score += 1
         scoreLabel.configure(text="Punkty: " + str(score))
         pytanie()
     else:
         buttons[odpowiedz].configure(bg="red", state="disabled")
+        loser += 1
+        if loser == 6:
+            messagebox.showerror("Koniec gry", "Przegrałeś")
+            root.destroy()
 
 def wroc():
     root.destroy()
