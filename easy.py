@@ -91,7 +91,7 @@ def check(odpowiedz):
 def wroc():
     root.destroy()
     os.system("python3 " + "nauka" + ".py") 
-wroc_but = tk.Button(root, text="<--", width=5, height=1, command = wroc)
+wroc_but = tk.Button(root, text="<--", width=5, height=1, command = wroc, bg= "#3b3b38", fg="white")
 wroc_but.grid( row = 4 , column = 0 )       
 
 

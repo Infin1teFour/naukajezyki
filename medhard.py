@@ -107,7 +107,7 @@ button.grid(row=2, column=1)
 def wroc():
     root.destroy()
     os.system("python3 " + "nauka" + ".py") 
-wroc_but = tk.Button(root, text="<--", width=10, height=2, command = wroc)
+wroc_but = tk.Button(root, text="<--", width=10, height=2, command = wroc, bg= "#3b3b38", fg="white")
 wroc_but.grid( row = 0 , column = 4 )       
 
 
