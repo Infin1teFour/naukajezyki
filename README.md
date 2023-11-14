@@ -31,8 +31,8 @@ Tak jak w poziomie średnio-trudnym, gracz ma zezwolone tylko 3 błędy, i użyt
 Jan Jakowicki - Programista, menu głowne, poziomy łatwy i średni. <br>
 Bastian Wiciński - Programista, poziomy średnio-trudny oraz trudny. <br>
 Jakub Dratwa - Testowanie programu. <br>
-Gerard Gondek - baza danych oraz grafiki. <br>
-Anastasiia Bondarenko - baza danych oraz grafiki. <br>
+Gerard Gondek - grafiki. <br>
+Anastasiia Bondarenko - baza danych. <br>
 
 
 

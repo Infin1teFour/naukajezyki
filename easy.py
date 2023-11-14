@@ -3,6 +3,7 @@ from tkinter import messagebox  # messagebox z biblioteki tkinter
 import mysql.connector  # łącznik mysql
 import random as r  # biblioteka random jako r
 from PIL import ImageTk, Image  # biblioteka pillow jako ImageTk, Image
+import os
 
 
 #połączenie z bazą
@@ -18,7 +19,6 @@ cursor.execute("SELECT napis, odpowiedz FROM poziom1")
 result = cursor.fetchall()
 r.shuffle(result)
 
-print(result)
 #okno 
 root = tk.Tk()
 root.title("nauka - poziom łatwy")
@@ -87,6 +87,14 @@ def check(odpowiedz):
         pytanie()
     else:
         buttons[odpowiedz].configure(bg="red", state="disabled")
+
+def wroc():
+    root.destroy()
+    os.system("python3 " + "nauka" + ".py") 
+wroc_but = tk.Button(root, text="<--", width=5, height=1, command = wroc)
+wroc_but.grid( row = 4 , column = 0 )       
+
+
 
 
 pytanie()

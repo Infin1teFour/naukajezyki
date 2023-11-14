@@ -1,6 +1,7 @@
 import tkinter as tk
 import mysql.connector
 import random
+import os
 
 # Połączenie z bazą danych MySQL
 db = mysql.connector.connect(
@@ -102,6 +103,14 @@ def check():
 # Przycisk do sprawdzania odpowiedzi
 button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check, bg= "#a6a6a2")
 button.grid(row=2, column=1)
+
+def wroc():
+    root.destroy()
+    os.system("python3 " + "nauka" + ".py") 
+wroc_but = tk.Button(root, text="<--", width=10, height=2, command = wroc)
+wroc_but.grid( row = 0 , column = 4 )       
+
+
 
 # Uruchomienie głównej pętli Tkinter
 root.mainloop()
