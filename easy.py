@@ -91,7 +91,7 @@ def check(odpowiedz):
         loser += 1
         if loser == 6:
             messagebox.showerror("Koniec gry", "Przegrałeś")
-            root.destroy()
+            wroc()
 
 def wroc():
     root.destroy()
