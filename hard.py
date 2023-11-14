@@ -81,6 +81,7 @@ def check():
                     pytanie_L.config(text="Zła odpowiedź przegrałeś")
                     button.config(state="disabled")  # Wyłącz przycisk po przegranej
                     guess.set("")
+                    guess_entry.config( state= "disabled")
                 else:
                     loser += 1
                     pytanie_L.config(text="Zła odpowiedź popełniłeś " + str(loser) + " błędy")
@@ -89,6 +90,7 @@ def check():
 # Przycisk do sprawdzania odpowiedzi
 button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check, bg= "#a6a6a2")
 button.grid(row=2, column=1)
+#Przycisk do powrotu do mmenu głównego
 def wroc():
     root.destroy()
     os.system("python3 " + "nauka" + ".py") 
