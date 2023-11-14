@@ -75,13 +75,16 @@ def check():
                 else:
                     currentword.config(text="Gra wygrałeś")
                     button.config(state="disabled")
+                    guess.set("")
             else:
-                if loser == 3:
+                if loser == 2:
                     pytanie_L.config(text="Zła odpowiedź przegrałeś")
                     button.config(state="disabled")  # Wyłącz przycisk po przegranej
+                    guess.set("")
                 else:
                     loser += 1
                     pytanie_L.config(text="Zła odpowiedź popełniłeś " + str(loser) + " błędy")
+                    guess.set("")
 
 # Przycisk do sprawdzania odpowiedzi
 button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check, bg= "#a6a6a2")
