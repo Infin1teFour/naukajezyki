@@ -23,19 +23,19 @@ print(result)
 root = tk.Tk()
 root.title("nauka - poziom łatwy")
 root.resizable("false", "false")
-root.configure(bg="lightgrey")
+root.configure(bg="#dbdbd7")
 
-button1 = tk.Button(root, text="1", width=10, height=2, command=lambda: check(1))
+button1 = tk.Button(root, text="1", width=10, height=2, command=lambda: check(1), bg= "#a6a6a2")
 button1.grid(row=1, column=0)
-button2 = tk.Button(root, text="2", width=10, height=2, command=lambda: check(2))
+button2 = tk.Button(root, text="2", width=10, height=2, command=lambda: check(2), bg= "#a6a6a2")
 button2.grid(row=1, column=1)
-button3 = tk.Button(root, text="3", width=10, height=2, command=lambda: check(3))
+button3 = tk.Button(root, text="3", width=10, height=2, command=lambda: check(3), bg= "#a6a6a2")
 button3.grid(row=1, column=2)
-button4 = tk.Button(root, text="4", width=10, height=2, command=lambda: check(4))
+button4 = tk.Button(root, text="4", width=10, height=2, command=lambda: check(4), bg= "#a6a6a2")
 button4.grid(row=2, column=0)
-button5 = tk.Button(root, text="5", width=10, height=2, command=lambda: check(5))
+button5 = tk.Button(root, text="5", width=10, height=2, command=lambda: check(5), bg= "#a6a6a2")
 button5.grid(row=2, column=1)
-button6 = tk.Button(root, text="6", width=10, height=2, command=lambda: check(6))
+button6 = tk.Button(root, text="6", width=10, height=2, command=lambda: check(6), bg= "#a6a6a2")
 button6.grid(row=2, column=2)
 
 #słownik guzików
@@ -54,7 +54,7 @@ label.grid(row=0, column=0, columnspan=3)
 def pytanie():
     try:
         for button in buttons.values():
-            button.configure(bg="SystemButtonFace", state="normal")
+            button.configure(bg="#a6a6a2", state="normal")
         global img, label, nrPytanie, poprawne
         currentImage = "grafika/"+result[nrPytanie][0]+".png"
         img = ImageTk.PhotoImage(Image.open(currentImage))
@@ -76,7 +76,7 @@ def pytanie():
         root.destroy()
 
 score = 0
-scoreLabel = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20))
+scoreLabel = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), bg="#dbdbd7")
 scoreLabel.grid(row=3, column=0, columnspan=3)
 
 def check(odpowiedz):

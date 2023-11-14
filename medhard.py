@@ -14,7 +14,7 @@ db = mysql.connector.connect(
 root = tk.Tk()
 root.title("Nauka - Średnio / Trudne")
 root.resizable(0, 0)
-
+root.configure(bg="#dbdbd7")
 vowels = {"a", "e", "i", "o", "u", "y", "-"}
 
 # Inicjalizacja zmiennych
@@ -51,14 +51,14 @@ def display_word(word):
     return displayed_word
 
 # Inicjalizacja etykiety wyświetlającej samogłoski jako litery, a współgłoski jako "_"
-samogloski_L = tk.Label(root, text=display_word(current_finnish), font=("Arial", 20), width=25, height=2)
+samogloski_L = tk.Label(root, text=display_word(current_finnish), font=("Arial", 20), width=25, height=2, bg="#dbdbd7")
 samogloski_L.grid(row=0, column=0)
 
 currentword = current_finnish
 
-scoredis = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), width=25, height=2)
+scoredis = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), width=25, height=2, bg="#dbdbd7")
 scoredis.grid(row=0, column=3)
-loserdis = tk.Label(root, text="Błędy: " + str(loser), font=("Arial", 20), width=25, height=2)
+loserdis = tk.Label(root, text="Błędy: " + str(loser), font=("Arial", 20), width=25, height=2, bg="#dbdbd7")
 loserdis.grid(row=1, column=3)
 
 # Pole do wprowadzania odpowiedzi
@@ -100,7 +100,7 @@ def check():
 
 
 # Przycisk do sprawdzania odpowiedzi
-button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check)
+button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check, bg= "#a6a6a2")
 button.grid(row=2, column=1)
 
 # Uruchomienie głównej pętli Tkinter

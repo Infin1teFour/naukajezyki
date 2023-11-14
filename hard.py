@@ -14,7 +14,7 @@ db = mysql.connector.connect(
 root = tk.Tk()
 root.title("Nauka - Trudne")
 root.resizable(0, 0)
-
+root.configure(bg="#dbdbd7")
 # Inicjalizacja zmiennych
 score = 0
 current_polish, current_finish = "", ""
@@ -42,13 +42,13 @@ def pytanie():
     return current_polish
 
 # Inicjalizacja etykiet w głównym oknie
-pytanie_L = tk.Label(root, text="", font=("Arial", 20), width=25, height=2)
+pytanie_L = tk.Label(root, text="", font=("Arial", 20), width=25, height=2, bg="#dbdbd7")
 pytanie_L.grid(row=0, column=0)
 
-currentword = tk.Label(root, text=current_polish, font=("Arial", 20), width=25, height=2)
+currentword = tk.Label(root, text=current_polish, font=("Arial", 20), width=25, height=2, bg="#dbdbd7")
 currentword.grid(row=1, column=0, columnspan=3)
 
-scoredis = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), width=25, height=2)
+scoredis = tk.Label(root, text="Punkty: " + str(score), font=("Arial", 20), width=25, height=2, bg="#dbdbd7")
 scoredis.grid(row=0, column=3)
 
 # Pole do wprowadzania odpowiedzi
@@ -83,7 +83,7 @@ def check():
                     pytanie_L.config(text="Zła odpowiedź popełniłeś " + str(loser) + " błędy")
 
 # Przycisk do sprawdzania odpowiedzi
-button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check)
+button = tk.Button(root, text="Sprawdź", width=20, height=2, command=check, bg= "#a6a6a2")
 button.grid(row=2, column=1)
 
 # Uruchomienie głównej pętli Tkinter
